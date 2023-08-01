@@ -19,17 +19,8 @@ public:
 
         while (l1 != NULL || l2 != NULL || carry != 0)
         {
-            int digit1 = 0, digit2 = 0;
-            if (l1 != NULL)
-            {
-                digit1 = l1->val;
-                l1 = l1->next;
-            }
-
-            // if(l2!=NULL){
-            //     digit2=l2->val;
-            //     l2=l2->next;
-            // }
+            int digit1,digit2;
+            digit1 = (l1 != NULL) ? l1->val : 0;
             digit2 = (l2 != NULL) ? l2->val : 0;
 
             int sum = digit1 + digit2 + carry;
@@ -40,10 +31,8 @@ public:
             tail->next = newNode;
             tail = tail->next;
 
-            if (l2 != NULL)
-            {
-                l2 = l2->next;
-            }
+            (l1 != NULL) ?  l1 = l1->next: NULL;
+            (l2 != NULL) ?  l2 = l2->next: NULL;
         }
 
         ListNode *result = Head->next;
